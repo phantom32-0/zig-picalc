@@ -41,7 +41,7 @@ pub fn main() !void {
         if (i % binde == 0) {
             rander.seed(std.crypto.random.int(u64));
 
-            var yuzde: f32 = @intToFloat(f32, i / binde) / 10;
+            var yuzde: f32 = @as(f32, @floatFromInt(i / binde)) / 10;
             print("\r%{d:.1}", .{yuzde});
         }
 
@@ -54,7 +54,7 @@ pub fn main() !void {
         }
     }
 
-    pi = @intToFloat(f32, 4 * a) / @intToFloat(f32, n);
+    pi = @as(f32, @floatFromInt(4 * a)) / @as(f32, @floatFromInt(n));
 
     print("\nCalculated pi: {d}\n", .{pi});
 }
